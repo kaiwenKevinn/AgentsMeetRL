@@ -2,11 +2,11 @@
 
 RL training frameworks for LLM agents (e.g. veRL, OpenRLHF, slime). Pick one as the base of your training stack.
 
-_Total: 23 entries._
+_Total: 24 entries._
 
 ## Contents
 
-AgentJet, HarnessX, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-AgentRL, NeMo-RL, RLinf, agent-lightning, siiRL, slime, ROLL, AReaL, MARTI, Tunix, RL2, verifiers, prime-rl, oat, veRL, OpenRLHF, trl.
+AgentJet, HarnessX, Dressage, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-AgentRL, NeMo-RL, RLinf, agent-lightning, siiRL, slime, ROLL, AReaL, MARTI, Tunix, RL2, verifiers, prime-rl, oat, veRL, OpenRLHF, trl.
 
 ### AgentJet
 - **Idea:** Decoupled swarm server/client design trains heterogeneous, non-shared-parameter multi-agent teams, with a context-merging timeline module for 1.5-10x rollout speedup.
@@ -23,6 +23,14 @@ AgentJet, HarnessX, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-AgentRL, NeMo-R
 - Algorithm: GRPO/PPO (slime/verl recipes) · Agent: Single · Turns: Multi · Tools: Yes (harness orchestrates tools/memory)
 - Reward phase: Outcome · Reward type: External + Custom
 - Task: Composable agent-harness foundry (ALFWorld/GAIA/WebShop/SWE-bench)
+
+### Dressage
+- **Idea:** Bridges policy rollouts, sandboxed tool execution, and training-data conversion through a shared proxy on slime, unifying whitebox Python tool loops and blackbox HTTP agents (opencode/openclaw/claude_code/codex) with TITO incremental tokenization to avoid retokenization drift.
+- `https://github.com/Accio-Lab/Dressage` · org: Accio-Lab · date: 2026.6
+- Paper(s): —
+- Algorithm: GRPO · Agent: Both · Turns: Multi · Tools: Yes (whitebox: code/shell/file/retrieval; blackbox: opencode/openclaw/claude_code/codex)
+- Reward phase: Outcome · Reward type: External/Rule
+- Task: Agentic RL for any agent and sandbox (SWE-Gym/ALFWorld/HotpotQA)
 
 ### Polar
 - **Idea:** Treats any real agent harness (Codex, Claude Code, shell) as the RL environment with token-faithful rollouts, so GRPO improves the exact agent that ships.

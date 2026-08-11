@@ -52,6 +52,26 @@
     },
     {
       "category": "base_framework",
+      "name": "Dressage",
+      "github_url": "https://github.com/Accio-Lab/Dressage",
+      "papers": [],
+      "blog_urls": [],
+      "date": "2026.6",
+      "org": "Accio-Lab",
+      "rl_framework": null,
+      "domain": null,
+      "task": "Agentic RL for any agent and sandbox (SWE-Gym/ALFWorld/HotpotQA)",
+      "rl_algorithm": "GRPO",
+      "agent_arity": "Both",
+      "reward_phase": "Outcome",
+      "turn_mode": "Multi",
+      "reward_type": "External/Rule",
+      "tool_usage": "Yes (whitebox: code/shell/file/retrieval; blackbox: opencode/openclaw/claude_code/codex)",
+      "focus": null,
+      "takeaway": "Bridges policy rollouts, sandboxed tool execution, and training-data conversion through a shared proxy on slime, unifying whitebox Python tool loops and blackbox HTTP agents (opencode/openclaw/claude_code/codex) with TITO incremental tokenization to avoid retokenization drift."
+    },
+    {
+      "category": "base_framework",
       "name": "Polar",
       "github_url": "https://github.com/NVIDIA-NeMo/ProRL-Agent-Server",
       "papers": [

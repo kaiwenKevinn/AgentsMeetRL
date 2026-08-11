@@ -24,7 +24,7 @@ likely causes, checks, and cited fixes for you to apply.
   paper/repo. Use for "which framework / benchmark" selection, to look
   up project names not routed via `problems/_INDEX.md`, and to answer
   "what's the idea behind X" by quoting its `Idea:` line.
-- **`database.json`** — machine-readable, 368 entries (each with a
+- **`database.json`** — machine-readable, 369 entries (each with a
   `takeaway` field mirroring the `Idea:` line) plus 3 paper-only
   algorithms (DAPO, Dr.GRPO, VAPO) whitelisted in
   `scripts/lint_skill.py`.

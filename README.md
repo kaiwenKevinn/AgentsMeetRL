@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![Base Framework](https://img.shields.io/badge/Base_Framework-23-BFA2DB?style=for-the-badge)
+![Base Framework](https://img.shields.io/badge/Base_Framework-24-BFA2DB?style=for-the-badge)
 ![General](https://img.shields.io/badge/General-21-4E6813?style=for-the-badge)
 ![Search & RAG](https://img.shields.io/badge/Search_&_RAG-45-845C40?style=for-the-badge)
 ![Web & GUI](https://img.shields.io/badge/Web_&_GUI-32-A259FF?style=for-the-badge)
@@ -82,7 +82,7 @@ Some Enumeration:
   <img src="AgentsMeetRL_Skill_landscape.png" alt="Logo" width="600">
 </div>
 
-This list is also packaged as a **[Claude Code](https://claude.com/claude-code) Skill** — [`agents-meet-rl`](skills/agents-meet-rl) — that turns the corpus into an on-demand assistant for **agentic-RL training, evaluation, and experiment design**: reward not moving, KL / entropy / length blow-ups, GRPO / PPO / DAPO knobs, retokenization drift, tool-call parse failures, long-horizon credit assignment, LLM-judge inconsistency, benchmark contamination, and framework / benchmark / algorithm selection — each answer anchored to specific papers and repos from this list. Backed by a machine-readable corpus of **368 projects** (snapshot **2026-07-23**). Once installed, Claude Code auto-invokes it whenever your question matches.
+This list is also packaged as a **[Claude Code](https://claude.com/claude-code) Skill** — [`agents-meet-rl`](skills/agents-meet-rl) — that turns the corpus into an on-demand assistant for **agentic-RL training, evaluation, and experiment design**: reward not moving, KL / entropy / length blow-ups, GRPO / PPO / DAPO knobs, retokenization drift, tool-call parse failures, long-horizon credit assignment, LLM-judge inconsistency, benchmark contamination, and framework / benchmark / algorithm selection — each answer anchored to specific papers and repos from this list. Backed by a machine-readable corpus of **369 projects** (snapshot **2026-07-23**). Once installed, Claude Code auto-invokes it whenever your question matches.
 
 **Install as a plugin (recommended):**
 
@@ -107,6 +107,7 @@ Then just ask, e.g. *"my GRPO search agent's reward is flat but eval keeps dropp
 | :----: | :----: | :----: |  :----: | :----: |
 | [AgentJet](https://github.com/modelscope/AgentJet) | <img src="https://img.shields.io/github/stars/modelscope/AgentJet?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.6 | ModelScope (Alibaba) | [Paper](https://arxiv.org/abs/2606.04484) |
 | [HarnessX](https://github.com/Darwin-Agent/HarnessX) | <img src="https://img.shields.io/github/stars/Darwin-Agent/HarnessX?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.6 | Darwin-Agent | [Paper](https://arxiv.org/abs/2606.14249) |
+| [Dressage](https://github.com/Accio-Lab/Dressage) | <img src="https://img.shields.io/github/stars/Accio-Lab/Dressage?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.6 | Accio-Lab | -- |
 | [Polar](https://github.com/NVIDIA-NeMo/ProRL-Agent-Server) | <img src="https://img.shields.io/github/stars/NVIDIA-NeMo/ProRL-Agent-Server?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.5 | NVIDIA (NeMo) | [Paper](https://arxiv.org/abs/2605.24220) |
 | [uni-agent](https://github.com/verl-project/uni-agent) | <img src="https://img.shields.io/github/stars/verl-project/uni-agent?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.4 | verl-project | -- |
 | [VeRL-Omni](https://github.com/verl-project/verl-omni) | <img src="https://img.shields.io/github/stars/verl-project/verl-omni?style=for-the-badge&logo=github&logoColor=white&labelColor=181717&color=ffd700" alt="Stars"> | 2026.4 | verl-project | -- |
@@ -137,6 +138,7 @@ Then just ask, e.g. *"my GRPO search agent's reward is flat but eval keeps dropp
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | [AgentJet](https://github.com/modelscope/AgentJet) | GRPO/PPO (swarm, multi-dim reward) | Both | Both | Multi | Swarm agentic RL (heterogeneous multi-agent, multi-task) | All (Custom/External/Rule) | Yes (tool calls, agent frameworks) |
 | [HarnessX](https://github.com/Darwin-Agent/HarnessX) | GRPO/PPO (slime/verl recipes) | Single | Outcome | Multi | Composable agent-harness foundry (ALFWorld/GAIA/WebShop/SWE-bench) | External + Custom | Yes (harness orchestrates tools/memory) |
+| [Dressage](https://github.com/Accio-Lab/Dressage) | GRPO | Both | Outcome | Multi | Agentic RL for any agent and sandbox (SWE-Gym/ALFWorld/HotpotQA) | External/Rule | Yes (whitebox: code/shell/file/retrieval; blackbox: opencode/openclaw/claude_code/codex) |
 | [Polar](https://github.com/NVIDIA-NeMo/ProRL-Agent-Server) | GRPO | Both | Outcome | Multi | Agentic RL on any harness (SWE-Bench/SWE-Gym) | External Verifier | Yes (real agent harnesses: shell/Codex/Claude Code) |
 | [uni-agent](https://github.com/verl-project/uni-agent) | GRPO/GSPO (partial rollout, fully-async) | Single | Outcome | Multi | SWE-Bench/Search/General Agent (1000+ concurrent) | All | Yes (unified model/tool/env abstractions) |
 | [VeRL-Omni](https://github.com/verl-project/verl-omni) | FlowGRPO/DanceGRPO/Diffusion DPO | Single | Outcome | Single | Multimodal generation RL (image/video/omni) | Model/External | No |

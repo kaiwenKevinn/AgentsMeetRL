@@ -13,7 +13,7 @@ Claude can cite specific work when giving recommendations — plus an
 
 | Category | File | Count | Use When |
 |---|---|---|---|
-| Base Frameworks | [base-frameworks.md](base-frameworks.md) | 23 | RL training frameworks for LLM agents (e.g. veRL, OpenRLHF, slime). Pick one as the base of your training stack. |
+| Base Frameworks | [base-frameworks.md](base-frameworks.md) | 24 | RL training frameworks for LLM agents (e.g. veRL, OpenRLHF, slime). Pick one as the base of your training stack. |
 | General / MultiTask Agents | [general-multitask.md](general-multitask.md) | 21 | Agents trained across many tasks/environments. Useful when you want one model that handles search + tool + code etc. |
 | Search & RAG Agents | [search-rag.md](search-rag.md) | 45 | Agents that interleave reasoning and retrieval. Most use rule-based EM/F1 outcome rewards or info-gain process rewards. |
 | Web & GUI Agents | [web-gui.md](web-gui.md) | 32 | Agents that drive browsers, mobile UIs, or desktop OSes. Grounding accuracy and long-horizon planning dominate. |
