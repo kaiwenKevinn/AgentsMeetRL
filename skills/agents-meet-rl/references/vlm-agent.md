@@ -2,11 +2,19 @@
 
 Vision-language model agents (visual tool-use, chart QA, autonomous driving, image-based search).
 
-_Total: 29 entries._
+_Total: 30 entries._
 
 ## Contents
 
-VTS, VSeek, HyperEyes, ODE, ParaVT, OpenSearch-VL, MTA-Agent, Gen-Searcher, MM-DeepResearch, PyVision-RL, Vision-DeepResearch, ARM-Thinker, CodeDance, DeepEyesV2, Mini-o3, VisionThink, multimodal-search-r1, AutoVLA, VDeepEyes, CoSo, Pixel-Reasoner, Visual-ARFT, VTool-R1, OpenThinkIMG, Chain-of-Focus, GRIT, AlphaDrive, VSC-RL, RL4VLM.
+InSight-doc, VTS, VSeek, HyperEyes, ODE, ParaVT, OpenSearch-VL, MTA-Agent, Gen-Searcher, MM-DeepResearch, PyVision-RL, Vision-DeepResearch, ARM-Thinker, CodeDance, DeepEyesV2, Mini-o3, VisionThink, multimodal-search-r1, AutoVLA, VDeepEyes, CoSo, Pixel-Reasoner, Visual-ARFT, VTool-R1, OpenThinkIMG, Chain-of-Focus, GRIT, AlphaDrive, VSC-RL, RL4VLM.
+
+### InSight-doc
+- **Idea:** Trains a coarse-to-fine reading loop where the VLM zooms into candidate regions to gather high-resolution evidence before answering, rewarding both the answer and the evidence it cited.
+- `https://github.com/m-Just/InSight-doc` · org: Academic (EMNLP'26) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.10628)
+- Algorithm: SFT cold-start + GRPO · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (zoom-in tool)
+- Reward phase: Both · Reward type: Rule-Based
+- Task: Long/multi-page document VQA (DUDE/MP-DocVQA)
 
 ### VTS
 - **Idea:** Treats long-video QA as iterative search over an adaptive temporal tree, training the agent to zoom/shift and to recover from wrong branches instead of one-shot frame sampling.

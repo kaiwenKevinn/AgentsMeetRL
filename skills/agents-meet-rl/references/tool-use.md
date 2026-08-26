@@ -2,11 +2,11 @@
 
 Agents that call external APIs/MCP/code interpreters. Reward usually mixes correctness + format + tool-call validity.
 
-_Total: 25 entries._
+_Total: 26 entries._
 
 ## Contents
 
-Tool-RL-Box, SPADER, APPO, AgenticQwen, Agent-STAR, ToolMaster, Agent-R1, ToolOrchestra, MATPO, AWorld-RL, ToolBrain, CodeGym, UserRL, Tool-R1, MiroRL, AWorld, verl-tool, Multi-Turn-RL-Agent, Tool-N1, Tool-Star, RL-Factory, calculator_agent_rl, ReTool, ToolRL, ReCall.
+Tool-RL-Box, SPADER, APPO, AgenticQwen, Agent-STAR, ToolMaster, Agent-R1, ToolOrchestra, MATPO, AWorld-RL, ToolBrain, CodeGym, UserRL, Tool-R1, MiroRL, AWorld, MUA-RL, verl-tool, Multi-Turn-RL-Agent, Tool-N1, Tool-Star, RL-Factory, calculator_agent_rl, ReTool, ToolRL, ReCall.
 
 ### Tool-RL-Box
 - **Idea:** Diagnoses why multi-step tool-use RL collapses into degenerate formats and fixes it with LLM-judge error classification that regenerates supervisory data mid-training.
@@ -135,6 +135,14 @@ Tool-RL-Box, SPADER, APPO, AgenticQwen, Agent-STAR, ToolMaster, Agent-R1, ToolOr
 - Algorithm: GRPO · Framework: veRL · Agent: Both · Turns: Multi · Tools: Yes
 - Reward phase: Outcome · Reward type: External/Rule
 - Task: Search/Web/Code
+
+### MUA-RL
+- **Idea:** Puts an LLM-simulated user inside the RL loop so the policy is trained on genuine multi-turn clarification-and-tool-call dialogues instead of single-shot tool invocations.
+- `https://github.com/zzwkk/MUA-RL` · org: Alibaba (Tongyi) · date: 2025.8
+- Paper(s): [Paper](https://arxiv.org/abs/2508.18669)
+- Algorithm: GRPO · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (simulated user + tool APIs)
+- Reward phase: Outcome · Reward type: Rule-Based (task completion)
+- Task: Multi-turn user-interacting agentic tool use (tau-bench/tau2-bench/ACEBench)
 
 ### verl-tool
 - **Idea:** Tool-as-environment paradigm fully decoupling actor rollout from environment via a unified tool API for native multi-turn tool-calling RL.

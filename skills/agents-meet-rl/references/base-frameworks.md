@@ -2,11 +2,27 @@
 
 RL training frameworks for LLM agents (e.g. veRL, OpenRLHF, slime). Pick one as the base of your training stack.
 
-_Total: 24 entries._
+_Total: 28 entries._
 
 ## Contents
 
-AgentJet, HarnessX, Dressage, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-AgentRL, NeMo-RL, RLinf, agent-lightning, siiRL, slime, ROLL, AReaL, MARTI, Tunix, RL2, verifiers, prime-rl, oat, veRL, OpenRLHF, trl.
+Molt, Orchard, AgentJet, HarnessX, Dressage, AReno, Polar, uni-agent, VeRL-Omni, OpenClaw-RL, Claw-R1, Open-AgentRL, NeMo-RL, RLinf, agent-lightning, siiRL, slime, ROLL, AReaL, MARTI, Tunix, RL2, verifiers, prime-rl, oat, veRL, OpenRLHF, trl.
+
+### Molt
+- **Idea:** A ~9k-line PyTorch-native agentic-RL stack (Ray + vLLM + AutoModel) exposing five policy-gradient estimators behind one Gymnasium-aligned Env/ChatAgent interface, with async rollout importance-sampling correction and context compaction for multi-turn tool loops.
+- `https://github.com/NVIDIA-NeMo/labs-molt` · org: NVIDIA (NeMo Labs) · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.21653)
+- Algorithm: REINFORCE/RLOO/GRPO/Dr.GRPO/GAE + On-policy Distillation · Agent: Single · Turns: Multi · Tools: Yes (Python exec, HTTP, VLM tools)
+- Reward phase: Outcome · Reward type: Custom
+- Task: Domain-agnostic agentic RL (Math/Geometry/Chat)
+
+### Orchard
+- **Idea:** One trainer, three recipes (GUI/SWE/Claw): distills then runs online RL against live websites and real deployment harnesses, using rubric-based process rewards plus value-model reranking instead of outcome-only signals.
+- `https://github.com/microsoft/Orchard` · org: Microsoft · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.21557)
+- Algorithm: Online RL (vendored slime) · Agent: Single · Turns: Multi · Tools: Yes (live browser, containers, agent harnesses)
+- Reward phase: Both · Reward type: Model/Rule
+- Task: Harness-native RL (browser/computer-use/SWE)
 
 ### AgentJet
 - **Idea:** Decoupled swarm server/client design trains heterogeneous, non-shared-parameter multi-agent teams, with a context-merging timeline module for 1.5-10x rollout speedup.
@@ -32,6 +48,14 @@ AgentJet, HarnessX, Dressage, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-Agent
 - Reward phase: Outcome · Reward type: External/Rule
 - Task: Agentic RL for any agent and sandbox (SWE-Gym/ALFWorld/HotpotQA)
 
+### AReno
+- **Idea:** Collapses agentic RL post-training onto a single node: an agent function talks to a local OpenAI-compatible proxy and returns tokens/logprobs/rewards straight from tool-call trajectories, so no separate rollout cluster is needed.
+- `https://github.com/inclusionAI/AReno` · org: Ant Group (inclusionAI) · date: 2026.6
+- Paper(s): —
+- Algorithm: GSPO/GRPO (+SFT/DPO) · Agent: Single · Turns: Multi · Tools: Yes (inspect_tree/read_file/rg/apply_patch/run_command)
+- Reward phase: Outcome · Reward type: Custom
+- Task: Single-node RL post-training (Math/SWE-style/Games)
+
 ### Polar
 - **Idea:** Treats any real agent harness (Codex, Claude Code, shell) as the RL environment with token-faithful rollouts, so GRPO improves the exact agent that ships.
 - `https://github.com/NVIDIA-NeMo/ProRL-Agent-Server` · org: NVIDIA (NeMo) · date: 2026.5
@@ -47,6 +71,14 @@ AgentJet, HarnessX, Dressage, Polar, uni-agent, OpenClaw-RL, Claw-R1, Open-Agent
 - Algorithm: GRPO/GSPO (partial rollout, fully-async) · Agent: Single · Turns: Multi · Tools: Yes (unified model/tool/env abstractions)
 - Reward phase: Outcome · Reward type: All
 - Task: SWE-Bench/Search/General Agent (1000+ concurrent)
+
+### VeRL-Omni
+- **Idea:** Extends the verl stack to omni-modal generation, packaging FlowGRPO/DanceGRPO/Diffusion-DPO recipes so image/video/omni models train under the same rollout-and-reward machinery as text policies.
+- `https://github.com/verl-project/verl-omni` · org: verl-project · date: 2026.4
+- Paper(s): —
+- Algorithm: FlowGRPO/DanceGRPO/Diffusion DPO · Agent: Single · Turns: Single · Tools: No
+- Reward phase: Outcome · Reward type: Model/External
+- Task: Multimodal generation RL (image/video/omni)
 
 ### OpenClaw-RL
 - **Idea:** Mines 'next-state' signals (tool outputs, user replies) for label-free async RL, mixing scalar GRPO rewards with token-level on-policy distillation hints (OPD).

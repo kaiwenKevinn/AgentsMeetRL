@@ -2,11 +2,35 @@
 
 Agents that interleave reasoning and retrieval. Most use rule-based EM/F1 outcome rewards or info-gain process rewards.
 
-_Total: 45 entries._
+_Total: 50 entries._
 
 ## Contents
 
-Harness-1, SlimSearcher, DeepRubric, SAAS, CuSearch, ORBIT, LiteResearcher, DR-Venus, MR-Search, ProRAG, O-Researcher, Agentic-RAG-R1, MemSearcher, DR Tulu, IGPO, ReSeek, AutoGraph-R1, DeepResearch, WebSeer, HiPRAG, Tree-GRPO, DeepDive, ASearcher, SSRL, Research-Venus, Graph-R1, Kimi-Researcher, R-Search, R1-Searcher-plus, StepSearch, AutoRefine, ZeroSearch, ReasonRAG, VRAG, MaskSearch, R3-RAG, O2-Searcher, s3, knowledge-r1, WebThinker, DeepResearcher, Search-R1, R1-Searcher, DeepRetrieval, C-3PO.
+EviSD, GTA-RAG, LAPO, Harness-1, SlimSearcher, DeepRubric, SAAS, CuSearch, GrepSeek, PyRAG, ORBIT, LiteResearcher, DR-Venus, MR-Search, ProRAG, O-Researcher, Agentic-RAG-R1, MemSearcher, DR Tulu, IGPO, ReSeek, AutoGraph-R1, DeepResearch, WebSeer, HiPRAG, Tree-GRPO, DeepDive, ASearcher, SSRL, Research-Venus, Graph-R1, Kimi-Researcher, R-Search, R1-Searcher-plus, StepSearch, AutoRefine, ZeroSearch, ReasonRAG, VRAG, MaskSearch, R3-RAG, O2-Searcher, s3, knowledge-r1, WebThinker, DeepResearcher, Search-R1, R1-Searcher, DeepRetrieval, C-3PO.
+
+### EviSD
+- **Idea:** Gives a teacher privileged access to gold evidence and uses the bounded teacher-student gap to correct GRPO advantages per instance, densifying an otherwise outcome-only search reward.
+- `https://github.com/JiananXie/EviSD` · org: Academic · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.01359)
+- Algorithm: GRPO + Evidence-Conditioned Self-Distillation · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (search/retrieval)
+- Reward phase: Outcome · Reward type: Rule-Based
+- Task: Search-augmented multi-hop QA
+
+### GTA-RAG
+- **Idea:** Synthesizes multi-hop trajectories from an OpenIE entity-document graph so training can reward the supporting-document path, not just final-answer EM.
+- `https://github.com/cjcj46262/GTA-RAG` · org: Academic (EMNLP'26 Findings) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.22479)
+- Algorithm: 3-stage GRPO · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (graph + dense retrieval)
+- Reward phase: Both · Reward type: Rule-Based (support-doc + EM)
+- Task: Multi-hop QA over entity-document graph
+
+### LAPO
+- **Idea:** Derives a per-turn process reward by counterfactually deleting each turn and measuring the outcome drop — dense credit assignment with no reward model and no judge.
+- `https://github.com/zhuq-111/LAPO-Leave-One-Turn-Attribution` · org: Academic · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.13501)
+- Algorithm: GRPO + Leave-One-Turn Attribution · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (retrieval)
+- Reward phase: Both · Reward type: Rule-Based (self-generated)
+- Task: Multi-turn search QA (NQ/TriviaQA/HotpotQA/2Wiki)
 
 ### Harness-1
 - **Idea:** Externalizes search state (candidate pool, evidence, verification records) into a stateful harness so a small 20B policy can run long-horizon retrieval.
@@ -47,6 +71,22 @@ Harness-1, SlimSearcher, DeepRubric, SAAS, CuSearch, ORBIT, LiteResearcher, DR-V
 - Algorithm: GRPO + Search-Depth curriculum rollout · Framework: Custom · Agent: Single · Turns: Multi · Tools: Yes (retrieval/search)
 - Reward phase: Outcome · Reward type: Rule-Based (EM)
 - Task: Agentic RAG multi-hop QA
+
+### GrepSeek
+- **Idea:** Drops the retrieval index entirely: the agent writes shell/grep pipelines over a raw multi-million-document corpus, trained with a token-F1 reward gated on output format.
+- `https://github.com/alirezasalemi7/grepseek` · org: UMass Amherst (CIIR) · date: 2026.5
+- Paper(s): [Paper](https://arxiv.org/abs/2605.29307)
+- Algorithm: SFT cold-start + GRPO · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (shell pipelines over raw corpus)
+- Reward phase: Outcome · Reward type: Rule-Based (token-F1 x format gate)
+- Task: Direct corpus interaction (shell/grep, no index)
+
+### PyRAG
+- **Idea:** Treats multi-hop RAG as executable program synthesis, training Decompose/Plan/Answer roles with shared LoRA parameters under a curriculum GRPO schedule.
+- `https://github.com/GasolSun36/PyRAG` · org: Academic · date: 2026.5
+- Paper(s): [Paper](https://arxiv.org/abs/2605.12975)
+- Algorithm: Curriculum shared-parameter GRPO (LoRA) · Framework: veRL · Agent: Multi (Decompose/Plan/Answer) · Turns: Multi · Tools: Yes (Python exec + E5 retriever)
+- Reward phase: Both · Reward type: Rule-Based + Execution
+- Task: Multi-hop RAG via executable Python synthesis
 
 ### ORBIT
 - **Idea:** Generates 20K verifiable reasoning-intensive web-QA queries at near-zero API cost to train search agents with GRPO on a tight budget.
