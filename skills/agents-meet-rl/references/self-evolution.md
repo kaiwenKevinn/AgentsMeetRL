@@ -2,7 +2,23 @@
 
 Agents that improve themselves through closed-loop feedback (challenger/solver, MCTS-driven self-training).
 
-_Total: 16 entries._
+_Total: 18 entries._
+
+### AgentOPSD
+- **Idea:** Converts a sparse trajectory outcome into dense per-turn credit through recursive Bayesian belief updates over teacher-student log-prob gaps, needing no critic network.
+- `https://github.com/ZethWang/AgentOPSD` · org: Academic · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.05987)
+- Algorithm: GRPO + critic-free recursive turn-level self-distillation · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (env actions, search)
+- Reward phase: Both · Reward type: Rule-Based + External
+- Task: ALFWorld / WebShop / Search-QA
+
+### BaT
+- **Idea:** Turns a benchmark's stage rubrics into the training signal, using a bilevel curriculum that reweights stages by headroom so a long-horizon medical research workflow gets graded stage by stage.
+- `https://github.com/AutoMedBench/Benchmark-as-Teacher` · org: NVIDIA (MONAI) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.16211)
+- Algorithm: SFT init + GRPO + BiCuRL (bilevel curriculum) · Framework: veRL + slime · Agent: Single · Turns: Multi · Tools: Yes (stage skills + fixed exec env)
+- Reward phase: Both · Reward type: Model-Based (stage rubrics) + Rule
+- Task: Medical research agent (AutoMedBench)
 
 ### SEED
 - **Idea:** Converts an agent’s own completed trajectories into hindsight skills and distills them back on-policy during RL, densifying outcome-only supervision without a teacher model.

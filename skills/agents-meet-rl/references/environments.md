@@ -2,11 +2,35 @@
 
 Sandbox environments and benchmarks. Pick one matching your task before designing rewards.
 
-_Total: 55 entries._
+_Total: 64 entries._
 
 ## Contents
 
-SETA, OpenAgent, MobileGym, AEnvironment, Gym-Anything, OpenSandbox, OpenEnv, open-trajectory-gym, Agent-World-Model, TermiGen, VisGym, NeMo-Gym, VISTA-Gym, LoCoBench-Agent, Simia-Agent-Training, PaperArena, enterprise-deep-research, meta-agents-research-environments, BrowseComp-Plus, MCP-Bench, MCPVerse, CompassVerifier, tau2-bench, Mind2Web-2, MCP-Universe, gem, MLE-Dojo, R2E-Gym, SWE-smith, atropos, InternBootcamp, loong, DataSciBench, reasoning-gym, llmgym, SWE-Gym, debug-gym, gym-llm, AgentGym, tau-bench, appworld, android_world, TheAgentCompany, LlamaGym, visualwebarena, LMRL-Gym, OSWorld, webarena, AgentBench, WebShop, ScienceWorld, factorio-learning-environment, alfworld, jericho, TextWorld.
+PAST-Bench, DigiWorld, Evo-Bench, ScrambleToolBench, SETA, OpenAgent, Echoverse, DocOps, PatientAgentBench, LegalWorld, MobileGym, AEnvironment, Gym-Anything, ClawBench, OpenSandbox, OpenEnv, open-trajectory-gym, Agent-World-Model, TermiGen, VisGym, NeMo-Gym, VISTA-Gym, LoCoBench-Agent, Simia-Agent-Training, PaperArena, enterprise-deep-research, meta-agents-research-environments, BrowseComp-Plus, MCP-Bench, MCPVerse, CompassVerifier, tau2-bench, Mind2Web-2, MCP-Universe, gem, MLE-Dojo, R2E-Gym, SWE-smith, atropos, InternBootcamp, loong, DataSciBench, reasoning-gym, llmgym, SWE-Gym, debug-gym, gym-llm, AgentGym, tau-bench, appworld, android_world, TheAgentCompany, LlamaGym, visualwebarena, LMRL-Gym, OSWorld, webarena, AgentBench, WebShop, ScienceWorld, factorio-learning-environment, alfworld, jericho, TextWorld.
+
+### PAST-Bench
+- **Idea:** Isolates recursive self-improvement into attributable primitives — memory reuse, procedural skill transfer, active info-gathering — scored across sessions in a live Docker sandbox with deterministic graders.
+- `https://github.com/Gen-Verse/PAST-Bench` · org: Gen-Verse (NUS/Stanford/Oxford/Princeton) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.04003)
+- Task: Cross-session personal agents (26 task families, 204 episodes, Docker sandbox)
+
+### DigiWorld
+- **Idea:** Ships 15 self-contained React Native apps on a real Android emulator with 3.2M+ data/theme/UI-state configurations, so mobile CUA evaluation can be randomized instead of memorized.
+- `https://github.com/facebookresearch/digiworld` · org: Meta (FAIR) · date: 2026.8
+- Paper(s): —
+- Task: Mobile GUI (15 sandboxed Android apps, 3.2M+ configs, real ADB/emulator)
+
+### Evo-Bench
+- **Idea:** Measures whether a model can diagnose and rewrite its own agent harness under fixed budgets — up to 1,000 steps / 48h in an E2B sandbox — rather than whether it can solve tasks with a given one.
+- `https://github.com/RUCAIBox/Evo-Bench` · org: Renmin University (RUCAIBox) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.09096)
+- Task: Agent-harness self-improvement (608 tasks, E2B sandbox, up to 1,000 steps)
+
+### ScrambleToolBench
+- **Idea:** Scrambles tool names and semantics and injects drift plus stochastic failures, separating agents that learned tool affordances from those that memorized tool-name priors.
+- `https://github.com/declare-lab/ScrambleToolBench` · org: NTU DeCLaRe Lab / A*STAR · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.02358)
+- Task: Tool-use robustness (obfuscated tool semantics, drift, stochastic failures)
 
 ### SETA
 - **Idea:** Auto-synthesizes and evolves 4,500+ verifiable terminal RL environments (task.yaml + Dockerfile + tests) in Terminal-Bench format, the largest open terminal RL set to date.
@@ -19,6 +43,30 @@ SETA, OpenAgent, MobileGym, AEnvironment, Gym-Anything, OpenSandbox, OpenEnv, op
 - `https://github.com/LAMDA-NeSy/OpenAgent` · org: Nanjing University (LAMDA-NeSy) · date: 2026.7
 - Paper(s): [Paper](https://arxiv.org/abs/2607.01084)
 - Task: Tool-use generalization sandbox (query/schema/observation/domain shifts)
+
+### Echoverse
+- **Idea:** 722 tasks over synthetic full-domain websites with resettable database-grounded state and explicit ID/OOD capability splits (date pickers, nested filters), so generalization is measurable rather than assumed.
+- `https://github.com/microsoft/Echoverse` · org: Microsoft Research · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.28074)
+- Task: Computer-use (722 resettable DB-grounded synthetic web tasks, ID/OOD splits)
+
+### DocOps
+- **Idea:** Verifies the produced file itself rather than the transcript: 210 Harbor-format tasks over Excel/Word/PowerPoint/PDF graded by deterministic file-state checks.
+- `https://github.com/icip-cas/DocOps` · org: Chinese Academy of Sciences (ICT) · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.19865)
+- Task: Document operations (Excel/Word/PPT/PDF, 210 Harbor-format tasks, artifact verifiers)
+
+### PatientAgentBench
+- **Idea:** Pairs a stateful healthcare sandbox (appointments, prescriptions, telehealth) with a simulated patient agent, scored by a clinician-grounded six-dimension LLM jury.
+- `https://github.com/amazon-science/PatientAgentBench` · org: Amazon Science · date: 2026.7
+- Paper(s): [Paper](https://arxiv.org/abs/2607.25485)
+- Task: Patient-facing health agents (stateful healthcare sandbox, simulated-user agent)
+
+### LegalWorld
+- **Idea:** Simulates a whole civil-litigation lifecycle — consultation, drafting, trial, appeal — with client/lawyer/judge roles over a live backend, giving legal agents a multi-stage rather than single-QA target.
+- `https://github.com/sii-research/Legal-world` · org: SII / Fudan DISC · date: 2026.6
+- Paper(s): [Paper](https://arxiv.org/abs/2606.18728)
+- Task: Legal agents (full civil-litigation lifecycle, multi-role, live backend)
 
 ### MobileGym
 - **Idea:** Browser-hosted, fully controllable Android simulator with deterministic verifiable judging and 256-instance parallel rollouts for online mobile-GUI RL.
@@ -37,6 +85,12 @@ SETA, OpenAgent, MobileGym, AEnvironment, Gym-Anything, OpenSandbox, OpenEnv, op
 - `https://github.com/cmu-l3/gym-anything` · org: CMU L3 Lab · date: 2026.4
 - Paper(s): [Paper](https://arxiv.org/abs/2604.06126)
 - Task: Computer Use (200+ apps)
+
+### ClawBench
+- **Idea:** Runs 283 tasks against real live websites in isolated containers and records five layers of trace (DOM, network, screenshot, action, reasoning), so web-agent failures can be attributed rather than just scored.
+- `https://github.com/reacher-z/ClawBench` · org: TIGER-AI Lab / NAIL Group · date: 2026.4
+- Paper(s): [Paper](https://arxiv.org/abs/2604.08523)
+- Task: Web/GUI agents (283 live-site tasks, isolated containers, 5-layer traces)
 
 ### OpenSandbox
 - **Idea:** Multi-language sandbox platform with standardized lifecycle APIs over Docker/K8s for secure agent code execution in RL training and evaluation.

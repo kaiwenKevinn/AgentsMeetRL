@@ -2,7 +2,15 @@
 
 Agents that learn to manage persistent memory beyond a fixed context window.
 
-_Total: 7 entries._
+_Total: 8 entries._
+
+### MemPrism
+- **Idea:** Makes memory composition itself the action space — a policy picks relation/window/granularity to build a task-conditioned view — so memory is trained by RL rather than fixed retrieval heuristics.
+- `https://github.com/Feld-maxiu/MemPrism` · org: Academic · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.06745)
+- Algorithm: GRPO/GiGPO · Framework: veRL (GiGPO extension) · Agent: Single · Turns: Multi · Tools: Yes (memory-view action + env actions)
+- Reward phase: Both · Reward type: Rule-Based
+- Task: Memory-view selection for ALFWorld/ALFRED + Mind2Web
 
 ### Supersede
 - **Idea:** Isolates the memory-update gap - agents citing superseded facts - as a verifiable RL task, rewarding current answers and penalizing stale ones across multi-session notes.

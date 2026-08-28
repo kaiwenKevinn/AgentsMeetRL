@@ -2,7 +2,16 @@
 
 Process/outcome reward models, PRM benchmarks, training recipes.
 
-_Total: 10 entries._
+_Total: 11 entries._
+
+### Agent-G²
+- **Idea:** Schedules how much of an expert trajectory to retain before each GRPO rollout via an online-estimated Gaussian, annealing guidance away as competence grows to beat sparse-reward exploration failure.
+- `https://github.com/ZJU-REAL/Agent-G2` · org: Zhejiang University / Baidu (EMNLP'26) · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.23318)
+- Algorithm: GRPO + Gaussian-guided adaptive-depth exploration · Agent: Single · Turns: Multi · Tools: Yes (interactive env actions)
+- Reward phase: Outcome · Reward type: Rule-Based/External
+- Task: ALFWorld / WebShop
+- Focus: Exploration guidance under sparse reward
 
 ### AgentV-RL
 - **Idea:** Turns reward modeling into a multi-turn tool-augmented deliberative process with forward+backward verifier agents; a 4B verifier beats SOTA ORMs by 25%.

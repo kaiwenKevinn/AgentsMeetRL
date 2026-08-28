@@ -2,11 +2,19 @@
 
 Software-engineering agents that locate, repair, and test. Most use SWE-bench-style verifiable rewards.
 
-_Total: 24 entries._
+_Total: 25 entries._
 
 ## Contents
 
-FastContext, SWE-Edit, CodeScout, CUDA-Agent, SWE-World, CUDA-L2, PPP-Agent, DeepAnalyze, RepoDeepSearch, CUDA-L1, digitalhuman, SWE-Swiss, MedAgentGym, CURE, Time-R1, ML-Agent, R1-Code-Interpreter, Skywork-OR1, sweet_rl, swe-rl, CTRL, AceCoder, rllm, open-r1.
+Lego-RL, FastContext, SWE-Edit, CodeScout, CUDA-Agent, SWE-World, CUDA-L2, PPP-Agent, DeepAnalyze, RepoDeepSearch, CUDA-L1, digitalhuman, SWE-Swiss, MedAgentGym, CURE, Time-R1, ML-Agent, R1-Code-Interpreter, Skywork-OR1, sweet_rl, swe-rl, CTRL, AceCoder, rllm, open-r1.
+
+### Lego-RL
+- **Idea:** Runs online RL natively inside production coding harnesses (Claude Code, OpenHands, OpenCode) rather than a reimplemented loop, so the training distribution matches deployment; +5.8-9.4 pts on SWE-bench Verified.
+- `https://github.com/LegoX/Lego-RL` · org: LegoX · date: 2026.8
+- Paper(s): [Paper](https://arxiv.org/abs/2608.17393)
+- Algorithm: PPO/GRPO/GSPO (sync & async) · Framework: veRL · Agent: Single · Turns: Multi · Tools: Yes (native harness bash/file-edit/test)
+- Reward phase: Outcome · Reward type: External Verifier (Harbor sandbox)
+- Task: SWE-bench Verified inside real coding harnesses
 
 ### FastContext
 - **Idea:** Trains a small parallel-tool-calling repository-explorer subagent so a coding agent gets focused file/line context cheaply via task-grounded RL.
